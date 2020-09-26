@@ -54,7 +54,7 @@ function generatePassword(length,upper,number,symbol){
 
 
 };
-//this creates an array of number between the given values to create charcode variables 
+//this creates an array of number between the given values to create charcode variables
 function charArray(min,max){
   const array = [];
   for (let i = min; i<= max; i++) { // fill array with the given range
