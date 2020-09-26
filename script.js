@@ -11,7 +11,7 @@ var passworddisplay = document.getElementById('password');
 const uppercharcodes= charArray(65,90);
 const lowercharcodes= charArray(97,122);
 const numbercharcodes = charArray(48, 57);
-const symbolcharcodes = charArray(33, 43);
+const symbolcharcodes = charArray(33, 38);
 
 // when the button is clicked store the values to the variable
 generateBtn.addEventListener('click',() =>{
@@ -24,16 +24,29 @@ generateBtn.addEventListener('click',() =>{
 });
 
 function generatePassword(length,upper,number,symbol){
-  let charCodes = lowercharcodes;
+  const passwordChars = [];
+  let start = 0
   //If upper is true then add array to lowercharcodes array
-  if (upper) charCodes = charCodes.concat(uppercharcodes);
-  if (number) charCodes = charCodes.concat(numbercharcodes);
-  if (symbol) charCodes = charCodes.concat(symbolcharcodes);
+  if (upper) {
+    const arraynumber = uppercharcodes[Math.floor(Math.random()* uppercharcodes.length)]; // assigns random num from array 
+      passwordChars.push(String.fromCharCode(arraynumber)); //calling on Charcodesheet given num values from array
+      start++;
+  };
+  if (number) {
+    const arraynumber = numbercharcodes[Math.floor(Math.random()* numbercharcodes.length)]; // assigns random num from array 
+      passwordChars.push(String.fromCharCode(arraynumber)); //calling on Charcodesheet given num values from array
+      start++;
+  } ;
+  if (symbol) {
+    const arraynumber = symbolcharcodes[Math.floor(Math.random()* symbolcharcodes.length)]; // assigns random num from array 
+      passwordChars.push(String.fromCharCode(arraynumber)); //calling on Charcodesheet given num values from array
+      start++;
+  } ;
 
   //using our combined array with all our char codes uses a randomiizer to select and convert code to char
-  const passwordChars = [];
-  for (let i = 0; i < length; i++){ // index starting at zero, loop untill max characters met
-      const arraynumber = charCodes[Math.floor(Math.random()* charCodes.length)]; // assigns random num from array
+ 
+  for ( let i = start; i < length; i++){ // index starting at zero, loop untill max characters met
+      const arraynumber = lowercharcodes[Math.floor(Math.random()* lowercharcodes.length)]; // assigns random num from array 
       passwordChars.push(String.fromCharCode(arraynumber)); //calling on Charcodesheet given num values from array
 
   };
