@@ -40,6 +40,7 @@ style.css
 *** Functionaltiy ***
 
 This code is good to generate a password between 1-50 characters
+Need to add error if User Selects more boxes than number of characters
 One Needed improvement is to allow user to ask for desired number of each type of character
 The styling sheet was provided for this excerise and due to time restrains further build on the markup
 Could use some more color?
